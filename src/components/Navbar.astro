@@ -1,0 +1,51 @@
+---
+const categories = [
+	{
+		name: 'Sneakers',
+		link: '/sneakers',
+	},
+	{
+		name: 'Jerseys',
+		link: '/jerseys',
+	},
+	{
+		name: 'Football Boots',
+		link: '/football-boots',
+	},
+	{
+		name: 'Keychain',
+		link: '/keychain',
+	},
+	{
+		name: 'Football Scarfs',
+		link: '/football-scarfs',
+	},
+];
+---
+
+<nav class="flex w-full justify-between mb-4">
+	<div>
+		<a
+			href="/"
+			class="font-bold font-heading text-2xl text-primary tracking-widest"
+			>Store M87YU</a
+		>
+	</div>
+	<div class="flex gap-4">
+		<a
+			href="/all-products"
+			class="inline-block text-2xl hover:text-primary transition-all duration-500 ease-in-out"
+			>All</a
+		>
+		{
+			categories.map((category) => (
+				<a
+					href={category.link}
+					class="inline-block text-2xl hover:text-primary transition-all duration-500 ease-in-out"
+				>
+					{category.name}
+				</a>
+			))
+		}
+	</div>
+</nav>
