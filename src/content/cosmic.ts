@@ -5,10 +5,21 @@ const cosmicCMSClient = createBucketClient({
   readKey: import.meta.env.PUBLIC_COSMIC_READ_KEY,
 })
 
-export const getAllProducts = async () => {
-  const products = await cosmicCMSClient.objects.find({
-    type: 'products'
-  })
+export const getAllProducts = async (category = 'all-products') => {
+
+  // TODO: Add category filter to query
+  const query = {
+    type: 'products',
+  }
+
+  console.log(query)
+  
+  const products = await cosmicCMSClient.objects.find(query)
+
+  // TODO: Implement this filter in the query itself
+  if (category !== 'all-products') {
+    return products.objects.filter((product: any) => product.metadata.category.key === category.slice(0, -1))
+  }
 
   return products.objects
 }

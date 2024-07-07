@@ -1,7 +1,6 @@
 ---
-import type { GetStaticPaths } from 'astro';
 import { navLinks } from '../../content/page';
-
+import { getAllProducts } from '../../content/cosmic';
 import Layout from '../../layouts/Layout.astro';
 
 export const getStaticPaths = () => {
@@ -15,12 +14,84 @@ console.log(category);
 const pageTitle = navLinks.find(
 	(navLink) => navLink.link === `/${category}`
 )?.name;
+
+const products = await getAllProducts(category);
+console.log(products);
 ---
 
 <Layout title={pageTitle}>
-	<h1
-		class="text-6xl font-bold underline underline-offset-8 decoration-primary heading"
-	>
-		{pageTitle}
-	</h1>
+	<main class="py-4 flex flex-col gap-8">
+		<h1
+			class="text-6xl font-bold underline underline-offset-8 decoration-primary heading"
+		>
+			{pageTitle}
+		</h1>
+		<div
+			class="grid gap-x-4 gap-y-2
+				grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
+				grid-flow-col-dense maingrid"
+		>
+			{
+				products.map((product: any) => (
+					<div
+						class="
+			bg-white
+			shadow-lg
+			rounded-lg
+			overflow-hidden
+			product-card
+			grid
+			row-span-4
+			grid-rows-subgrid
+			"
+					>
+						<div class="w-full h-64 relative overflow-hidden">
+							<img
+								src={
+									product.metadata.image.url ||
+									product.metadata.image.imgix_url ||
+									product.thumbnail
+								}
+								alt={product.title}
+								class="w-full h-full object-cover object-center"
+							/>
+						</div>
+						<div class="flex flex-col justify-between p-4">
+							<h2 class="font-bold text-2xl text-primary h-16">
+								{product.title}
+							</h2>
+							<p class="text-gray-500">{product.metadata.description}</p>
+							<div class="flex justify-between items-center">
+								<p class="font-bold text-2xl">₹ {product.metadata.price}</p>
+								<p class="text-sm bg-amber-400 text-white px-4 py-1 rounded-full">
+									Few Products Left
+								</p>
+							</div>
+							<a
+								href={`/product/${product.slug}`}
+								class="block bg-primary hover:bg-primary-darker transition-all duration-300 text-white text-center py-2 px-4 rounded-lg mt-4"
+							>
+								View Product
+							</a>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</main>
 </Layout>
+
+<style>
+	.heading {
+		word-spacing: 0.75rem;
+	}
+
+	img {
+		transform: all 0.5s ease;
+	}
+
+	.product-card:hover img {
+		scale: 1.25;
+		transition: all 0.5s ease;
+	}
+</style>
