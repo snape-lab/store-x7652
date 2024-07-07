@@ -1,8 +1,9 @@
 ---
+import clsx from 'clsx';
+
 import Navbar from '../components/Navbar.astro';
 import AdBanner from '../components/AdBanner.astro';
 import Footer from '../components/Footer.astro';
-
 import { projectName } from '../content/project';
 
 // Supports weights 100-900
@@ -13,9 +14,10 @@ import '@fontsource/bangers';
 interface Props {
 	title?: string;
 	noBanner?: boolean;
+	showBigLogo?: boolean;
 }
 
-const { title, noBanner } = Astro.props;
+const { title, noBanner, showBigLogo } = Astro.props;
 ---
 
 <!doctype html>
@@ -30,8 +32,13 @@ const { title, noBanner } = Astro.props;
 	</head>
 	<body class="p-8 pt-2">
 		<Navbar />
+		{
+			showBigLogo && (
+				<img src="/logo.svg" alt="logo" class="w-auto h-[90vh] mx-auto mb-8" />
+			)
+		}
 		{!noBanner && <AdBanner />}
-		<div class="min-h-[90vh]">
+		<div class={clsx(!showBigLogo && 'min-h-[90vh]')}>
 			<slot />
 		</div>
 		<Footer />
