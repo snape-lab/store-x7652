@@ -11,3 +11,5 @@ The website is built by **me**. (using [Astro](https://astro.build) and [Tailwin
 The business is **NOT owned or run by me** nor do I have any idea on how it works.
 
 Check it out here: [The Jorhat Marketplace](https://thejorhatmarketplace-v1.netlify.app/)
+
+And yeah in case you're wondering, I'm from Jorhat as well.
