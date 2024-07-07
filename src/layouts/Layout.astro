@@ -31,7 +31,7 @@ const { title, noBanner } = Astro.props;
 	<body class="p-8 pt-2">
 		<Navbar />
 		{!noBanner && <AdBanner />}
-		<div class="min-h-screen">
+		<div class="min-h-[90vh]">
 			<slot />
 		</div>
 		<Footer />
