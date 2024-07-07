@@ -36,13 +36,15 @@ const whatsappURL = `https://wa.me/919394315537/?text=${encodeURIComponent(text)
 		<img
 			src={product.image.url || product.image.imgix_url || product.thumbnail}
 			alt={product.title}
-			class="h-[80vh] w-auto"
+			class="h-[80vh] w-auto text-balance"
 		/>
-		<div class="flex flex-col justify-between min-h-[60vh]">
+		<div class="flex flex-col justify-between gap-8 min-h-[60vh]">
 			<h1 class="text-8xl font-bold text-primary">{product.title}</h1>
 			{
 				product.description && (
-					<p class="text-xl text-gray-600">{product.description}</p>
+					<p class="text-4xl text-balance text-gray-600">
+						{product.description}
+					</p>
 				)
 			}
 			<div class="flex flex-col items-start justify-start gap-2">
