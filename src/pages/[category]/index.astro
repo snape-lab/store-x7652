@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { navLinks } from '../../content/page';
+
+import Layout from '../../layouts/Layout.astro';
+
+export const getStaticPaths = () => {
+	return navLinks.map((navLink) => ({
+		params: { category: navLink.link },
+	}));
+};
+
+const { category } = Astro.params;
+console.log(category);
+const pageTitle = navLinks.find(
+	(navLink) => navLink.link === `/${category}`
+)?.name;
+---
+
+<Layout title={pageTitle}>
+	<h1
+		class="text-6xl font-bold underline underline-offset-8 decoration-primary heading"
+	>
+		{pageTitle}
+	</h1>
+</Layout>

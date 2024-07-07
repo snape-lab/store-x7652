@@ -1,0 +1,15 @@
+---
+const { navLinkProp } = Astro.props;
+const currentPath = Astro.url.pathname;
+import clsx from 'clsx';
+---
+
+<a
+	href={navLinkProp.link}
+	class={clsx(
+		'inline-block text-2xl hover:text-primary transition-all duration-500 ease-in-out',
+		{ 'text-primary': currentPath === navLinkProp.link }
+	)}
+>
+	{navLinkProp.name}
+</a>
