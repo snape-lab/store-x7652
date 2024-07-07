@@ -9,7 +9,7 @@ import { getProduct } from '../../../content/cosmic';
 const { product: productSlug } = Astro.params;
 
 if (!productSlug) {
-	Astro.redirect('404');
+	return Astro.redirect('/404');
 }
 
 let product;
