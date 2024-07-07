@@ -1,16 +1,14 @@
 ---
 import { navLinks } from '../content/page';
 import NavLink from './NavLink.astro';
+
+import { projectName } from '../content/project';
 ---
 
-<nav class="flex w-full justify-between mb-4">
-	<div>
-		<a
-			href="/"
-			class="font-bold font-heading text-3xl text-primary tracking-widest"
-			>The Cosmic Store</a
-		>
-	</div>
+<nav class="flex w-full justify-between items-center">
+	<a href="/" class="">
+		<img src="/logo.svg" class="h-16 w-auto" alt="logo" />
+	</a>
 	<div class="flex gap-4">
 		{navLinks.map((navLink) => <NavLink navLinkProp={navLink} />)}
 	</div>
