@@ -12,9 +12,10 @@ import '@fontsource/bangers';
 
 interface Props {
 	title?: string;
+	noBanner?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, noBanner } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +30,7 @@ const { title } = Astro.props;
 	</head>
 	<body class="p-8 pt-2">
 		<Navbar />
-		<AdBanner />
+		{!noBanner && <AdBanner />}
 		<div class="min-h-screen">
 			<slot />
 		</div>

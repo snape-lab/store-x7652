@@ -17,12 +17,55 @@ let product;
 try {
 	product = await getProduct(productSlug || '');
 	console.log(product);
+
+	product = {
+		...product,
+		...product.metadata,
+	};
 } catch (error) {
 	console.error(error);
 	return Astro.redirect('/404');
 }
+
+const text = `Hey Team JHT Marketplace, I am interested in ${product.title} (${productSlug}) and want to buy it.`;
+const whatsappURL = `https://wa.me/919394315537/?text=${encodeURIComponent(text)}`;
 ---
 
-<Layout title={product}>
-	{product}
+<Layout title={product} noBanner={true}>
+	<main class="py-4 flex gap-8 items-center">
+		<img
+			src={product.image.url || product.image.imgix_url || product.thumbnail}
+			alt={product.title}
+			class="h-[80vh] w-auto"
+		/>
+		<div class="flex flex-col justify-between min-h-[60vh]">
+			<h1 class="text-8xl font-bold text-primary">{product.title}</h1>
+			{
+				product.description && (
+					<p class="text-xl text-gray-600">{product.description}</p>
+				)
+			}
+			<div class="flex flex-col items-start justify-start gap-2">
+				<div class="text-2xl bg-green-500 px-4 py-1">50% Off on Shipping</div>
+				<p class="text-6xl text-gray-600">
+					₹ {product.price} + <strike>200</strike> 100 <span class="text-4xl"
+						>(Shipping Charges)</span
+					>
+				</p>
+			</div>
+			<div>
+				<a
+					class="bg-primary text-white text-3xl px-4 py-1 shadow-lg flex w-fit items-center gap-2"
+					href={whatsappURL}
+				>
+					<img
+						src="/whatsappicon.svg"
+						alt="Whatsapp"
+						class="h-7 w-7 color-white"
+					/>
+					<p>Place Order on Whatsapp</p>
+				</a>
+			</div>
+		</div>
+	</main>
 </Layout>
