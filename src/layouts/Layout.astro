@@ -48,6 +48,12 @@ const { title, noBanner } = Astro.props;
 		background: var(--bgColor);
 		color: var(--fontColor);
 	}
+
+	*::selection {
+		background: #fd0054;
+		color: white;
+	}
+
 	a {
 		color: inherit;
 		text-decoration: none;
