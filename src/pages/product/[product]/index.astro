@@ -3,8 +3,24 @@ export const prerender = false;
 
 import Layout from '../../../layouts/Layout.astro';
 
+import { getProduct } from '../../../content/cosmic';
+
 // import { getProduct } from '$lib/products'
-const { product } = Astro.params;
+const { product: productSlug } = Astro.params;
+
+if (!productSlug) {
+	Astro.redirect('404');
+}
+
+let product;
+
+try {
+	product = await getProduct(productSlug || '');
+	console.log(product);
+} catch (error) {
+	console.error(error);
+	return Astro.redirect('/404');
+}
 ---
 
 <Layout title={product}>

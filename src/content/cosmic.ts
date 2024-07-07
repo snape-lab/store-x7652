@@ -23,3 +23,12 @@ export const getAllProducts = async (category = 'all-products') => {
 
   return products.objects
 }
+
+export const getProduct = async (slug: string) => {
+  const product = await cosmicCMSClient.objects.findOne({
+    slug,
+    type: 'products',
+  })
+
+  return product.object
+}
