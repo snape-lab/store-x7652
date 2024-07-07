@@ -1,3 +1,4 @@
+/// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
 interface ImportMetaEnv {
   readonly PUBLIC_COSMIC_BUCKET_SLUG: string;
