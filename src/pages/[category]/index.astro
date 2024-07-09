@@ -3,11 +3,13 @@ import { navLinks } from '../../content/page';
 import { getAllProducts } from '../../content/cosmic';
 import Layout from '../../layouts/Layout.astro';
 
-export const getStaticPaths = () => {
-	return navLinks.map((navLink) => ({
-		params: { category: navLink.link },
-	}));
-};
+// export const getStaticPaths = () => {
+// 	return navLinks.map((navLink) => ({
+// 		params: { category: navLink.link },
+// 	}));
+// };
+
+export const prerender = false;
 
 const { category } = Astro.params;
 console.log(category);
