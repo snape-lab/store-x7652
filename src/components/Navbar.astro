@@ -5,11 +5,11 @@ import NavLink from './NavLink.astro';
 import { projectName } from '../content/project';
 ---
 
-<nav class="flex w-full justify-between items-center">
+<nav class="flex w-full justify-center md:justify-between items-center">
 	<a href="/" class="">
 		<img src="/logo.svg" class="h-16 w-auto" alt="logo" />
 	</a>
-	<div class="flex gap-4">
+	<div class="md:flex gap-4 hidden">
 		{navLinks.map((navLink) => <NavLink navLinkProp={navLink} />)}
 	</div>
 </nav>
