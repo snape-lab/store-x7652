@@ -27,23 +27,25 @@ console.log(products);
 			{pageTitle}
 		</h1>
 		<div
-			class="grid gap-x-4 gap-y-2
+			class="grid gap-x-4 gap-y-4
 				grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4
-				grid-flow-col-dense maingrid"
+				grid-flow-dense maingrid
+				grid-auto-rows-[16rem auto auto auto 1rem]"
 		>
 			{
 				products.map((product: any) => (
 					<div
 						class="
-			bg-white
-			shadow-lg
-			rounded-lg
-			overflow-hidden
-			product-card
-			grid
-			row-span-4
-			grid-rows-subgrid
-			"
+									bg-white
+										shadow-lg
+										rounded-lg
+										overflow-hidden
+										product-card
+										grid
+										row-span-4
+										col-span-1
+										grid-rows-subgrid
+									"
 					>
 						<div class="w-full h-64 relative overflow-hidden">
 							<img
@@ -56,7 +58,7 @@ console.log(products);
 								class="w-full h-full object-cover object-center"
 							/>
 						</div>
-						<div class="flex flex-col justify-between p-4">
+						<div class="flex flex-col justify-between p-4 gap-2 -mt-4 -mb-4">
 							<h2 class="font-bold text-2xl text-primary h-16">
 								{product.title}
 							</h2>
@@ -82,6 +84,9 @@ console.log(products);
 </Layout>
 
 <style>
+	/* .maingrid {
+		grid-auto-rows: 16rem auto auto auto;
+	} */
 	.heading {
 		word-spacing: 0.75rem;
 	}
