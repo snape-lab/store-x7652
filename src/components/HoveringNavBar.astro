@@ -11,7 +11,7 @@ import NavLink from './NavLink.astro';
   hoveringNavBar__Closed"
 >
 	<button
-		class="fixed -top-16 left-1/2 -translate-x-1/2 z-30 p-2 bg-white rounded-full
+		class="fixed -top-16 left-1/2 -translate-x-1/2 z-30 p-2 bg-white rounded-full border-4 border-primary
     aspect-square shadow-lg grid place-items-center text-4xl
     hover:text-white hover:bg-primary"
 	>
@@ -28,14 +28,14 @@ import NavLink from './NavLink.astro';
 		>
 	</button>
 	<div
-		class="hoveringNavBar__Menu h-auto w-[90vw] bg-white rounded-lg shadow-lg flex flex-col items-start justify-center gap-2 p-4 origin-bottom"
+		class="hoveringNavBar__Menu h-auto w-[70vw] bg-white rounded-lg shadow-lg flex flex-col items-start justify-center gap-2 p-4 origin-bottom border-4 border-primary z-20"
 	>
 		<div class="mb-5 flex items-end justify-between w-full">
 			<a href="/" class="block">
 				<img src="/logo.svg" class="h-16 w-auto" alt="logo" />
 			</a>
 
-			<p class="text-6xl text-gray-500/40">Categories</p>
+			<!-- <p class="text-6xl text-gray-500/40">Categories</p> -->
 		</div>
 
 		{
