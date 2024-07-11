@@ -4,9 +4,10 @@ import NavLink from './NavLink.astro';
 ---
 
 <nav
+	id="hovering-nav-bar"
 	class="md:hidden fixed
   bottom-10 left-1/2 transform -translate-x-1/2
-  z-20"
+  z-20 origin-bottom"
 >
 	<button
 		class="fixed -top-16 left-1/2 -translate-x-1/2 z-30 p-2 bg-white rounded-full
@@ -26,7 +27,7 @@ import NavLink from './NavLink.astro';
 		>
 	</button>
 	<div
-		class="h-auto w-[90vw] bg-white rounded-lg shadow-lg flex flex-col items-start justify-center gap-2 p-4"
+		class="hoveringNavBar__Menu h-auto w-[90vw] bg-white rounded-lg shadow-lg flex flex-col items-start justify-center gap-2 p-4 origin-bottom"
 	>
 		<div class="mb-5 flex items-end justify-between w-full">
 			<a href="/" class="block">
@@ -36,6 +37,42 @@ import NavLink from './NavLink.astro';
 			<p class="text-6xl text-gray-500/40">Categories</p>
 		</div>
 
-		{navLinks.map((navLink) => <NavLink navLinkProp={navLink} />)}
+		{
+			navLinks.map((navLink) => (
+				<div class="hoveringNavBar__navLink transition-all duration-500 ease-in-out">
+					<NavLink navLinkProp={navLink} />
+				</div>
+			))
+		}
 	</div>
 </nav>
+
+<style>
+	.hoveringNavBar__Menu {
+		transform: scaleY(1);
+		transition: all 1s ease;
+	}
+	.hoveringNavBar__Closed .hoveringNavBar__Menu {
+		transform: scaleY(0);
+		/* opacity: 0.; */
+	}
+
+	.hoveringNavBar__Closed .hoveringNavBar__navLink {
+		opacity: 0;
+	}
+
+	.hoveringNavBar__Closed button {
+		opacity: 0;
+		transform: translateY(2rem);
+	}
+</style>
+
+<script>
+	const navBar = document.getElementById('hovering-nav-bar');
+	const button = navBar?.querySelector('button');
+
+	button?.addEventListener('click', () => {
+		console.log('clicked');
+		navBar?.classList.toggle('hoveringNavBar__Closed');
+	});
+</script>

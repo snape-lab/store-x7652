@@ -8,7 +8,8 @@ import clsx from 'clsx';
 	href={navLinkProp.link}
 	class={clsx(
 		'inline-block text-2xl hover:text-primary transition-all duration-500 ease-in-out',
-		{ 'text-primary': currentPath === navLinkProp.link }
+		{ 'text-primary': currentPath === navLinkProp.link },
+		'navlink'
 	)}
 >
 	{navLinkProp.name}
