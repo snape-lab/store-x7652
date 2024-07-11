@@ -1,4 +1,5 @@
 import { createBucketClient } from '@cosmicjs/sdk'
+import { navLinks } from './page';
 
 export const prerender = false;
 
@@ -20,7 +21,7 @@ export const getAllProducts = async (category = 'all-products') => {
 
   // TODO: Implement this filter in the query itself
   if (category !== 'all-products') {
-    return products.objects.filter((product: any) => product.metadata.category.key === category.slice(0, -1))
+    return products.objects.filter((product: any) => product.metadata.category.key === navLinks.find((link) => link.link === `/${category}`)?.singularName);
   }
 
   return products.objects

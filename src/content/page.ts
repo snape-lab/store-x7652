@@ -15,7 +15,7 @@ export const categories = [
 		name: 'Football Boots',
 		link: '/football-boots',
 		disabled: false,
-		singularName: 'football boot',
+		singularName: 'football-boot',
 	},
 	{
 		name: 'Keychain',
@@ -27,7 +27,7 @@ export const categories = [
 		name: 'Football Scarfs',
 		link: '/football-scarfs',
 		disabled: true,
-		singularName: 'football scarf',
+		singularName: 'football-scarf',
 	},
 	{
 		name: 'Watches',
@@ -39,7 +39,7 @@ export const categories = [
 		name: 'Running Shoes',
 		link: '/running-shoes',
 		disabled: false,
-		singularName: 'running shoe',
+		singularName: 'running-shoe',
 	}
 ];
 
