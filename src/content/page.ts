@@ -47,6 +47,8 @@ export const navLinks = [
 	{
 		name: 'All',
 		link: '/all-products',
+		disabled: false,
+		singularName: 'product',
 	},
 	...categories,
 ];
