@@ -10,6 +10,7 @@ import { projectName } from '../content/project';
 import '@fontsource-variable/overpass';
 import '@fontsource/staatliches';
 import '@fontsource/bangers';
+import HoveringNavBar from '../components/HoveringNavBar.astro';
 
 interface Props {
 	title?: string;
@@ -32,6 +33,7 @@ const { title, noBanner, showBigLogo } = Astro.props;
 	</head>
 	<body class="p-8 pt-2">
 		<Navbar />
+		<HoveringNavBar />
 		{
 			showBigLogo && (
 				<img src="/logo.svg" alt="logo" class="w-auto h-[90vh] mx-auto mb-8" />
