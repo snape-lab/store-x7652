@@ -33,3 +33,14 @@ import { projectName } from '../content/project';
 		{navLinks.map((navLink) => <NavLink navLinkProp={navLink} />)}
 	</div>
 </nav>
+
+<script>
+	const navBar = document.querySelector('nav');
+	const hamburger = document.querySelector('button');
+
+	const hoveringNavBar = document.querySelector('#hovering-nav-bar');
+
+	hamburger?.addEventListener('click', () => {
+		hoveringNavBar?.classList.toggle('hoveringNavBar__Closed');
+	});
+</script>
