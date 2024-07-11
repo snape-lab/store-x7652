@@ -48,11 +48,35 @@ import NavLink from './NavLink.astro';
 	</div>
 </nav>
 
+<div
+	id="overlay"
+	class="bg-primary/30 w-screen h-screen fixed top-0 left-0 z-10"
+>
+</div>
+
 <style>
+	#overlay {
+		transition: all 1s ease;
+		opacity: 1;
+		/* display: block; */
+		/* pointer-events: all; */
+	}
+
+	.hoveringNavBar__Closed + #overlay {
+		opacity: 0;
+		pointer-events: none;
+	}
+
 	.hoveringNavBar__Menu {
 		transform: scaleY(1);
 		transition: all 1s ease;
 	}
+
+	.hoveringNavBar__Closed {
+		pointer-events: none;
+		/* bottom: -100vh; */
+	}
+
 	.hoveringNavBar__Closed .hoveringNavBar__Menu {
 		transform: scaleY(0);
 		/* opacity: 0.; */
@@ -75,5 +99,10 @@ import NavLink from './NavLink.astro';
 	button?.addEventListener('click', () => {
 		console.log('clicked');
 		navBar?.classList.toggle('hoveringNavBar__Closed');
+	});
+
+	const overlay = document.getElementById('overlay');
+	overlay?.addEventListener('click', () => {
+		navBar?.classList.add('hoveringNavBar__Closed');
 	});
 </script>
