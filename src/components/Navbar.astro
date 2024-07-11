@@ -30,7 +30,11 @@ import { projectName } from '../content/project';
 		<img src="/logo.svg" class="h-16 w-auto" alt="logo" />
 	</a>
 	<div class="md:flex gap-4 hidden">
-		{navLinks.map((navLink) => <NavLink navLinkProp={navLink} />)}
+		{
+			navLinks
+				.filter((navLink) => !navLink.disabled)
+				.map((navLink) => <NavLink navLinkProp={navLink} />)
+		}
 	</div>
 </nav>
 

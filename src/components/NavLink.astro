@@ -5,12 +5,21 @@ import clsx from 'clsx';
 ---
 
 <a
-	href={navLinkProp.link}
+	href={navLinkProp.disabled ? null : navLinkProp.link}
 	class={clsx(
 		'inline-block text-2xl hover:text-primary transition-all duration-500 ease-in-out',
 		{ 'text-primary': currentPath === navLinkProp.link },
-		'navlink'
+		{
+			'text-gray-500 cursor-not-allowed hover:text-gray-500':
+				navLinkProp.disabled,
+		},
+		'navlink flex gap-2 items-center'
 	)}
 >
-	{navLinkProp.name}
+	<p>{navLinkProp.name}</p>
+	{
+		navLinkProp.disabled && (
+			<p class="text-xs px-4 py-1 rounded-full bg-primary/20">Coming soon</p>
+		)
+	}
 </a>
