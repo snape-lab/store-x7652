@@ -1,4 +1,4 @@
-export const categories = [
+export const categories: NavLink[] = [
 	{
 		name: 'Sneakers',
 		link: '/sneakers',
@@ -43,7 +43,7 @@ export const categories = [
 	}
 ];
 
-export const navLinks = [
+export const navLinks: NavLink[] = [
 	{
 		name: 'All',
 		link: '/all-products',

@@ -1,0 +1,26 @@
+---
+import ProductCard from './ProductCard.astro';
+import SectionHeading from './SectionHeading.astro';
+
+interface Props {
+	products: Product[];
+	navLink: NavLink;
+}
+const { products, navLink } = Astro.props;
+const MAX_NUMBER_OF_PRODUCTS_TO_DISPLAY = 6;
+const trimmedProducts = products.slice(0, MAX_NUMBER_OF_PRODUCTS_TO_DISPLAY);
+---
+
+<div class="flex flex-col gap-2 my-5">
+	<SectionHeading title={navLink.name} />
+	<!-- <div class="w-[60vw]"> -->
+	<div class="flex gap-4 flex-wrap">
+		{trimmedProducts.map((product) => <ProductCard product={product} />)}
+	</div>
+	<!-- </div> -->
+	<a
+		href={`/${navLink.link}`}
+		class="block text-primary underline underline-offset-4"
+		>See all {navLink.singularName}s</a
+	>
+</div>

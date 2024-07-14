@@ -3,6 +3,11 @@
 import AdBanner from '../components/AdBanner.astro';
 import Layout from '../layouts/MainLayout.astro';
 import BigSearchBox from '../components/BigSearchBox.astro';
+
+import { getAllProducts } from '../content/cosmic';
+import { navLinks } from '../content/page';
+import FewProducts from '../components/FewProducts.astro';
+const products = await getAllProducts();
 ---
 
 <Layout noBanner={true}>
@@ -10,4 +15,9 @@ import BigSearchBox from '../components/BigSearchBox.astro';
 	<!-- big logo -->
 	<img src="/logo.svg" alt="logo" class="w-auto h-[70vh] mx-auto mb-2" />
 	<AdBanner />
+	<!-- {
+		navLinks
+			.filter((link) => link.name !== 'All')
+			.map((link) => <FewProducts products={products} navLink={link} />)
+	} -->
 </Layout>

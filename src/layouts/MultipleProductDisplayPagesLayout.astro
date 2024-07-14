@@ -1,5 +1,6 @@
 ---
 import ProductsGrid from '../components/ProductsGrid.astro';
+import SectionHeading from '../components/SectionHeading.astro';
 import Layout from './MainLayout.astro';
 
 const { title, products } = Astro.props as {
@@ -10,17 +11,7 @@ const { title, products } = Astro.props as {
 
 <Layout title={title}>
 	<main class="py-4 flex flex-col gap-8">
-		<h1
-			class="text-6xl font-bold underline underline-offset-8 decoration-primary heading"
-		>
-			{title}
-		</h1>
+		<SectionHeading title={title} />
 		<ProductsGrid products={products} />
 	</main>
 </Layout>
-
-<style>
-	.heading {
-		word-spacing: 0.75rem;
-	}
-</style>
