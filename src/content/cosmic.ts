@@ -24,7 +24,7 @@ export const getAllProducts = async (category = 'all-products') => {
     return products.objects.filter((product: any) => product.metadata.category.key === navLinks.find((link) => link.link === `/${category}`)?.singularName);
   }
 
-  return products.objects
+  return products.objects as Product[];
 }
 
 export const getProduct = async (slug: string) => {
@@ -33,7 +33,7 @@ export const getProduct = async (slug: string) => {
     type: 'products',
   })
 
-  return product.object
+  return product.object as Product;
 }
 
 export const searchProducts = async (searchTerm: string) => {
@@ -53,5 +53,5 @@ export const searchProducts = async (searchTerm: string) => {
   
   console.log(products)
 
-  return products.objects
+  return products.objects as Product[];
 }
