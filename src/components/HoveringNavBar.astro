@@ -1,7 +1,8 @@
 ---
 import { navLinks } from '../content/page';
+import HoveringNavSearchBox from './HoveringNavSearchBox.astro';
 import NavLink from './NavLink.astro';
-import SearchBox from './SearchBox.astro';
+import SearchBox from './NavSearchBox.astro';
 ---
 
 <nav
@@ -48,8 +49,10 @@ import SearchBox from './SearchBox.astro';
 		}
 	</div>
 
-	<div class="mt-2 w-full grid place-items-center">
-		<SearchBox />
+	<div
+		class="mt-2 w-full grid place-items-center search-box z-50 pointer-events-auto"
+	>
+		<HoveringNavSearchBox />
 	</div>
 </nav>
 
@@ -94,6 +97,16 @@ import SearchBox from './SearchBox.astro';
 	.hoveringNavBar__Closed button {
 		opacity: 0;
 		transform: translateY(2rem);
+	}
+
+	.search-box {
+		transition: all 0.75s ease;
+		opacity: 1;
+	}
+
+	.hoveringNavBar__Closed .search-box {
+		opacity: 0;
+		transform: translateY(3rem);
 	}
 </style>
 

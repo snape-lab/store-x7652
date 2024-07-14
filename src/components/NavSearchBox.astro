@@ -1,0 +1,52 @@
+---
+
+---
+
+<div
+	class="nav-search-box text-lg flex gap-2 items-center w-full max-w-96 justify-center"
+>
+	<input
+		id="nav-search-box__input"
+		type="search"
+		name="search"
+		placeholder="Search for products"
+		class="w-full md:w-2/3 px-4 py-1 border-4 border-primary rounded-full"
+	/>
+	<button
+		id="nav-search-box__button"
+		type="submit"
+		class="bg-primary text-white border-2 border-primary px-4 py-1 rounded-full"
+	>
+		Search
+	</button>
+</div>
+
+<script>
+	const handleSubmit = (event: any) => {
+		console.log('handlesubmit called');
+		// get the search field value and redirect to the search page
+		const searchInputField = document.getElementById(
+			'nav-search-box__input'
+		) as HTMLInputElement;
+		const searchTerm = searchInputField.value;
+		if (!searchTerm) {
+			window.alert('Please enter a search term');
+			return;
+		}
+		window.location.assign(`/search/${searchTerm}`);
+	};
+
+	const searchInputField = document.getElementById(
+		'nav-search-box__input'
+	) as HTMLInputElement;
+	searchInputField.addEventListener('keydown', (event) => {
+		if (event.key === 'Enter') {
+			handleSubmit(event);
+		}
+	});
+
+	const searchButton = document.getElementById(
+		'nav-search-box__button'
+	) as HTMLButtonElement;
+	searchButton.addEventListener('click', handleSubmit);
+</script>
