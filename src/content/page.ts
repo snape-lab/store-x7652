@@ -20,7 +20,7 @@ export const categories = [
 	{
 		name: 'Keychain',
 		link: '/keychain',
-		disabled: false,
+		disabled: true,
 		singularName: 'keychain',
 	},
 	{
