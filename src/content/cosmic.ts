@@ -15,8 +15,6 @@ export const getAllProducts = async (category = 'all-products') => {
     type: 'products',
   }
 
-  console.log(query)
-  
   const products = await cosmicCMSClient.objects.find(query)
 
   // TODO: Implement this filter in the query itself

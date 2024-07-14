@@ -1,7 +1,6 @@
 ---
 export const prerender = false;
 const { searchTerm } = Astro.params;
-console.log(searchTerm);
 
 import { searchProducts } from '../../../content/cosmic';
 import MultipleProductDisplayPagesLayout from '../../../layouts/MultipleProductDisplayPagesLayout.astro';
@@ -11,9 +10,6 @@ if (!searchTerm) {
 }
 
 const products = await searchProducts(searchTerm);
-
-// console.log('Seaerched Products', products);
-// console.log('Seaerched Products[0', products[0]);
 ---
 
 <MultipleProductDisplayPagesLayout
