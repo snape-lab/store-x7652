@@ -14,6 +14,9 @@ Check it out here: [The Jorhat Marketplace](https://thejorhatmarketplace-v1.netl
 
 ### Coming Next
 
-- Responsiveness. (Coming up soon, got this entire thing done in almost a day including learning a new framework and trying out 3 CMS (content management systems))
+- [ ] Pagination
+- [ ] Highlights in home page
+- [ ] Image Optimization
+- [ ] Self Hosted CMS (far far future)
 
 Oh and yeah in case you're wondering, I'm from Jorhat as well.
