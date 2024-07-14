@@ -1,0 +1,26 @@
+---
+import ProductsGrid from '../components/ProductsGrid.astro';
+import Layout from './Layout.astro';
+
+const { title, products } = Astro.props as {
+	title: string;
+	products: Product[];
+};
+---
+
+<Layout title={title}>
+	<main class="py-4 flex flex-col gap-8">
+		<h1
+			class="text-6xl font-bold underline underline-offset-8 decoration-primary heading"
+		>
+			{title}
+		</h1>
+		<ProductsGrid products={products} />
+	</main>
+</Layout>
+
+<style>
+	.heading {
+		word-spacing: 0.75rem;
+	}
+</style>
