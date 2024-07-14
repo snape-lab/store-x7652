@@ -25,4 +25,16 @@ const products = await getAllProducts();
 			.filter((link) => link.name !== 'All')
 			.map((link) => <FewProducts products={products} navLink={link} />)
 	} -->
+
+	<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-5">
+		{
+			navLinks.map((navLink) => (
+				<a href={navLink.link}>
+					<div class="bg-primary aspect-video text-xl text-white rounded-lg shadow-md p-4 grid place-items-center">
+						<h2>{navLink.name}</h2>
+					</div>
+				</a>
+			))
+		}
+	</div>
 </Layout>
