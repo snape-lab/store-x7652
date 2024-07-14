@@ -29,7 +29,9 @@ import SearchBox from './SearchBox.astro';
 		<img src="/logo.svg" class="h-16 w-auto" alt="logo" />
 	</a>
 
-	<SearchBox />
+	<div class="hidden lg:block">
+		<SearchBox />
+	</div>
 
 	<div class="md:flex gap-4 hidden">
 		{
