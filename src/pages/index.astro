@@ -1,6 +1,13 @@
 ---
-return Astro.redirect('/all-products');
-// import Layout from '../layouts/Layout.astro';
+// return Astro.redirect('/all-products');
+import AdBanner from '../components/AdBanner.astro';
+import Layout from '../layouts/MainLayout.astro';
+import BigSearchBox from '../components/BigSearchBox.astro';
 ---
 
-<!-- <Layout showBigLogo={true} /> -->
+<Layout noBanner={true}>
+	<BigSearchBox />
+	<!-- big logo -->
+	<img src="/logo.svg" alt="logo" class="w-auto h-[70vh] mx-auto mb-2" />
+	<AdBanner />
+</Layout>

@@ -15,10 +15,9 @@ import HoveringNavBar from '../components/HoveringNavBar.astro';
 interface Props {
 	title?: string;
 	noBanner?: boolean;
-	showBigLogo?: boolean;
 }
 
-const { title, noBanner, showBigLogo } = Astro.props;
+const { title, noBanner } = Astro.props;
 ---
 
 <!doctype html>
@@ -34,13 +33,8 @@ const { title, noBanner, showBigLogo } = Astro.props;
 	<body class="p-8 pt-2">
 		<Navbar />
 		<HoveringNavBar />
-		{
-			showBigLogo && (
-				<img src="/logo.svg" alt="logo" class="w-auto h-[90vh] mx-auto mb-8" />
-			)
-		}
 		{!noBanner && <AdBanner />}
-		<div class={clsx(!showBigLogo && 'min-h-[90vh]')}>
+		<div class={clsx('min-h-[90vh]')}>
 			<slot />
 		</div>
 		<Footer />

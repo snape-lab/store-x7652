@@ -1,0 +1,30 @@
+---
+
+---
+
+<div class="big-search-box">
+	<input
+		id="big-search-box__input"
+		type="search"
+		name="search"
+		placeholder="Search..."
+	/>
+	<button id="big-search-box__button" type="submit">Search</button>
+</div>
+
+<script>
+	const handleSubmit = (event: any) => {
+		console.log('handlesubmit called');
+		// get the search field value and redirect to the search page
+		const searchInputField = document.getElementById(
+			'big-search-box__input'
+		) as HTMLInputElement;
+		const searchTerm = searchInputField.value;
+		window.location.assign(`/search/${searchTerm}`);
+	};
+
+	const searchButton = document.getElementById(
+		'big-search-box__button'
+	) as HTMLButtonElement;
+	searchButton.addEventListener('click', handleSubmit);
+</script>
