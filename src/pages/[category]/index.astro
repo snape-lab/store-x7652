@@ -12,13 +12,12 @@ import Layout from '../../layouts/Layout.astro';
 export const prerender = false;
 
 const { category } = Astro.params;
-console.log(category);
+
 const pageTitle = navLinks.find(
 	(navLink) => navLink.link === `/${category}`
 )?.name;
 
 const products = await getAllProducts(category);
-console.log(products);
 ---
 
 <Layout title={pageTitle}>
@@ -52,9 +51,10 @@ console.log(products);
 						<div class="w-full h-64 relative overflow-hidden">
 							<img
 								src={
-									product.metadata.image.url ||
-									product.metadata.image.imgix_url ||
-									product.thumbnail
+									product?.metadata?.image?.url ||
+									product?.metadata?.image?.imgix_url ||
+									product?.thumbnail ||
+									'/noimage.png'
 								}
 								alt={product.title}
 								class="w-full h-full object-cover object-center"
