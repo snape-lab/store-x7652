@@ -35,3 +35,23 @@ export const getProduct = async (slug: string) => {
 
   return product.object
 }
+
+export const searchProducts = async (searchTerm: string) => {
+  // const query = 
+  //   searchTerm.split(' ').map((word) => `metadata.title.match("${word}")`).join(' OR ')
+
+  const query = {
+    type: 'products',
+    $or: [
+      { title: { $regex: searchTerm, $options: 'i' } },
+      { 'metadata.description': { $regex: searchTerm } },
+      { slug: { $regex         : searchTerm } },
+    ]
+  }
+
+  const products = await cosmicCMSClient.objects.find(query);
+  
+  console.log(products)
+
+  return products.objects
+}
