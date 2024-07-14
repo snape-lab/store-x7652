@@ -4,6 +4,7 @@ const { searchTerm } = Astro.params;
 console.log(searchTerm);
 
 import { searchProducts } from '../../../content/cosmic';
+import MultipleProductDisplayPagesLayout from '../../../layouts/MultipleProductDisplayPagesLayout.astro';
 
 if (!searchTerm) {
 	return Astro.redirect('/all-products');
@@ -14,3 +15,8 @@ const products = await searchProducts(searchTerm);
 console.log('Seaerched Products', products);
 console.log('Seaerched Products[0', products[0]);
 ---
+
+<MultipleProductDisplayPagesLayout
+	title={`Search results for "${searchTerm}"`}
+	products={products}
+/>
