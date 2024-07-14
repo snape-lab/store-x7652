@@ -36,6 +36,15 @@
 		window.location.assign(`/search/${searchTerm}`);
 	};
 
+	const searchInputField = document.getElementById(
+		'big-search-box__input'
+	) as HTMLInputElement;
+	searchInputField.addEventListener('keydown', (event) => {
+		if (event.key === 'Enter') {
+			handleSubmit(event);
+		}
+	});
+
 	const searchButton = document.getElementById(
 		'big-search-box__button'
 	) as HTMLButtonElement;
