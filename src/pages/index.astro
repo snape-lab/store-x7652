@@ -8,6 +8,7 @@ import { getAllProducts } from '../content/cosmic';
 import { navLinks } from '../content/page';
 import FewProducts from '../components/FewProducts.astro';
 import ShippingInfo from '../components/ShippingInfo.astro';
+import clsx from 'clsx';
 const products = await getAllProducts();
 ---
 
@@ -26,15 +27,44 @@ const products = await getAllProducts();
 			.map((link) => <FewProducts products={products} navLink={link} />)
 	} -->
 
-	<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-5">
+	<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-5 h-full">
 		{
-			navLinks.map((navLink) => (
-				<a href={navLink.link}>
-					<div class="bg-primary aspect-video text-xl text-white rounded-lg shadow-md p-4 grid place-items-center">
-						<h2>{navLink.name}</h2>
-					</div>
-				</a>
-			))
+			navLinks
+				.filter((link) => !link.disabled)
+				.map((navLink) => (
+					<a
+						href={navLink.link}
+						class={clsx(
+							// 'hover:scale-105 transition-transform duration-300',
+							navLink.name === 'All' && 'col-span-2 lg:col-span-3 xl:col-span-4'
+						)}
+					>
+						<div
+							class={clsx(
+								'rounded-xl overflow-hidden text-xl text-white shadow-md p-4 grid place-items-center',
+								'relative',
+								navLink.name === 'All' ? 'aspect-video' : 'aspect-square'
+								// navLink.placeholderImageURL &&
+								// 	`bg-cover bg-center bg-[url('${navLink.placeholderImageURL}')]`
+							)}
+						>
+							<img
+								src={navLink.placeholderImageURL}
+								class="w-full h-full object-cover absolute top-0 left-0 z-10 categoryImg"
+								alt=""
+							/>
+							<h2 class="z-20 text-2xl lg:text-6xl text-center">
+								{navLink.name === 'All' ? 'All Products' : navLink.name}
+							</h2>
+						</div>
+					</a>
+				))
 		}
 	</div>
 </Layout>
+
+<style>
+	.categoryImg {
+		filter: brightness(0.4);
+	}
+</style>

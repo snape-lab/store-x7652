@@ -3,4 +3,5 @@ type NavLink = {
   link: string;
   disabled: boolean;
   singularName: string;
+  placeholderImageURL?: string;
 }
