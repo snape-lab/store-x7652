@@ -2,14 +2,23 @@
 
 ---
 
-<div class="big-search-box">
+<div
+	class="big-search-box text-xl flex gap-2 items-center w-full justify-center py-10"
+>
 	<input
 		id="big-search-box__input"
 		type="search"
 		name="search"
-		placeholder="Search..."
+		placeholder="Search for products"
+		class="w-2/3 px-4 py-2 border-4 border-primary rounded-full"
 	/>
-	<button id="big-search-box__button" type="submit">Search</button>
+	<button
+		id="big-search-box__button"
+		type="submit"
+		class="bg-primary text-white border-4 border-primary px-4 py-2 rounded-full"
+	>
+		Search
+	</button>
 </div>
 
 <script>
