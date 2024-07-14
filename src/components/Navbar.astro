@@ -1,8 +1,7 @@
 ---
 import { navLinks } from '../content/page';
 import NavLink from './NavLink.astro';
-
-import { projectName } from '../content/project';
+import SearchBox from './SearchBox.astro';
 ---
 
 <nav
@@ -29,6 +28,9 @@ import { projectName } from '../content/project';
 	<a href="/" class="block">
 		<img src="/logo.svg" class="h-16 w-auto" alt="logo" />
 	</a>
+
+	<SearchBox />
+
 	<div class="md:flex gap-4 hidden">
 		{
 			navLinks
