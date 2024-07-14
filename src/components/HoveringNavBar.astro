@@ -1,6 +1,7 @@
 ---
 import { navLinks } from '../content/page';
 import NavLink from './NavLink.astro';
+import SearchBox from './SearchBox.astro';
 ---
 
 <nav
@@ -46,11 +47,15 @@ import NavLink from './NavLink.astro';
 			))
 		}
 	</div>
+
+	<div class="mt-2 w-full grid place-items-center">
+		<SearchBox />
+	</div>
 </nav>
 
 <div
 	id="overlay"
-	class="bg-primary/30 w-screen h-screen fixed top-0 left-0 z-10"
+	class="bg-primary/30 w-screen h-screen fixed top-0 left-0 z-10 backdrop-blur-xl"
 >
 </div>
 
