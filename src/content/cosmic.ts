@@ -49,9 +49,11 @@ export const searchProducts = async (searchTerm: string) => {
     ]
   }
 
-  const products = await cosmicCMSClient.objects.find(query);
-  
-  console.log(products)
-
-  return products.objects as Product[];
+  try {
+    const products = await cosmicCMSClient.objects.find(query);
+    return products.objects as Product[];
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
 }
