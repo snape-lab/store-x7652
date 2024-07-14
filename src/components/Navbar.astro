@@ -2,6 +2,11 @@
 import { navLinks } from '../content/page';
 import NavLink from './NavLink.astro';
 import SearchBox from './NavSearchBox.astro';
+
+const { pathname } = Astro.url;
+const isHome = pathname === '/';
+console.log(pathname);
+console.log(isHome);
 ---
 
 <nav
@@ -29,9 +34,13 @@ import SearchBox from './NavSearchBox.astro';
 		<img src="/logo.svg" class="h-16 w-auto" alt="logo" />
 	</a>
 
-	<div class="hidden lg:block">
-		<SearchBox />
-	</div>
+	{
+		!isHome && (
+			<div class="hidden lg:block">
+				<SearchBox />
+			</div>
+		)
+	}
 
 	<div class="lg:flex gap-4 hidden">
 		{
