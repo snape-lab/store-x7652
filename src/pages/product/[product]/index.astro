@@ -31,7 +31,7 @@ const text = `Hey Team JHT Marketplace, I am interested in ${product.title} (${p
 const whatsappURL = `https://wa.me/919394315537/?text=${encodeURIComponent(text)}`;
 ---
 
-<Layout title={product} noBanner={true}>
+<Layout title={product.title} noBanner={true}>
 	<main class="py-4 flex flex-col md:flex-row gap-8 md:gap-8 items-center">
 		<img
 			src={product.image.url || product.image.imgix_url || product.thumbnail}
