@@ -50,10 +50,10 @@ const products = await getAllProducts();
 						>
 							<img
 								src={navLink.placeholderImageURL}
-								class="w-full h-full object-cover absolute top-0 left-0 z-10 categoryImg"
+								class="w-full h-full object-cover absolute top-0 left-0 categoryImg"
 								alt=""
 							/>
-							<h2 class="z-20 text-2xl lg:text-6xl text-center">
+							<h2 class="text-2xl lg:text-6xl text-center z-[2]">
 								{navLink.name === 'All' ? 'All Products' : navLink.name}
 							</h2>
 						</div>
